@@ -85,9 +85,12 @@ class LinkedList:
         if self.head is None:
             return "Can't delete, list is empty"
 
-        else:
+        if self.head.next is not None:
             self.head = self.head.next
-            self.n -= 1
+            self.head.prev = None
+        else:
+            self.head = None
+        self.n -= 1
 
     def delete_tail(self):
         """Delete the tail/last node of the linked list"""
@@ -95,35 +98,37 @@ class LinkedList:
         if self.head is None:
             return "Can't delete, list is empty"
 
-        if self.n == 1:
+        if self.head.next is None:
             self.clear()
             return
 
-        else:
-            curr = self.head
-            while curr.next.next is not None:
-                curr = curr.next
-            curr.next = None
-            self.n -= 1
-
-    def delete_value(self, value):
-        """Delete's a given value in the linked list"""
-
-        if self.head is None:
-            return "list is empty"
-        if self.head.data == value:
-            return self.delete_head()
         curr = self.head
         while curr.next is not None:
-            if curr.next.data == value:
-                if curr.next is not None:
+            curr = curr.next
+        curr.prev.next = None
+        self.n -= 1
+
+    def delete_value(self, value):
+        """Deletes a given value from the linked list"""
+        if self.head is None:
+            return "List is empty"
+
+        curr = self.head
+
+        # If head is to be deleted
+        if curr.data == value:
+            return self.delete_head()
+
+        while curr is not None:
+            if curr.data == value:
+                if curr.prev is not None:
                     curr.prev.next = curr.next
+                if curr.next is not None:
                     curr.next.prev = curr.prev
-                else:
-                    curr.prev.next = None
                 self.n -= 1
                 return
             curr = curr.next
+
         return "Value not found"
 
 
