@@ -5,14 +5,6 @@
 sep = "-" * 30
 arr = []
 
-# while True:
-#     prompt = input("Enter an element: ")
-#     arr.append(prompt)
-#     prompt = input("Enter another (y,n)")
-#     if prompt.lower() == "n":
-#         break
-# print(arr)
-
 
 def push():
     while True:
