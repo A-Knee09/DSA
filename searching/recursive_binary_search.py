@@ -21,7 +21,6 @@ def binary_search(arr, target, start, end):
         return binary_search(arr, target, middle + 1, end)
 
 
-# Usage
 arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 target = 12
 binary_search(arr, target, 0, len(arr) - 1)
