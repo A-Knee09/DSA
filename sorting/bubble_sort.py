@@ -9,7 +9,7 @@ Comparison (Inner Loop):
 - In each pass, compare arr[j] and arr[j+1] for all unsorted elements.
 - If arr[j] > arr[j+1], swap them.
 
-If I have K passes I can find the K largest element. Let's say I want to find the 3 largest element, so I can perform 3 passes
+If I have K passes I can find the K largest element(s). Let's say I want to find the 3 largest element, so I can perform 3 passes
 """
 
 
